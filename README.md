@@ -8,3 +8,11 @@ If you aren't me you probably don't want to do this.
 
 1. Install Fedora Kinoite or Bazzite (KDE version).
 2. Rebase onto this image: `sudo bootc switch ghcr.io/lbussell/stygian-blue`
+
+## Development
+
+Run `just` to see all development commands.
+
+## Related
+
+- [lbussell/dotfiles](https://github.com/lbussell/dotfiles)
