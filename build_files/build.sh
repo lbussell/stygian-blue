@@ -19,6 +19,20 @@ sed -i 's/repo_gpgcheck=0/repo_gpgcheck=1/' /etc/yum.repos.d/microsoft-edge.repo
 dnf5 install -y microsoft-edge-stable
 rm -f /etc/yum.repos.d/microsoft-edge.repo
 
+## Install 1Password
+rpm --import https://downloads.1password.com/linux/keys/1password.asc
+cat > /etc/yum.repos.d/1password.repo << 'EOF'
+[1password]
+name=1Password Stable Channel
+baseurl=https://downloads.1password.com/linux/rpm/stable/$basearch
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://downloads.1password.com/linux/keys/1password.asc
+EOF
+dnf5 install -y 1password
+rm -f /etc/yum.repos.d/1password.repo
+
 ## Custom ujust commands
 cp /ctx/stygian-blue.just /usr/share/ublue-os/just/60-custom.just
 
