@@ -10,6 +10,12 @@ set -ouex pipefail
 # This installs a package from fedora repos:
 # dnf5 install -y tmux
 
+## Install Microsoft Edge
+curl -fsSL -o /etc/yum.repos.d/microsoft-edge.repo \
+    https://packages.microsoft.com/yumrepos/edge/config.repo
+dnf5 install -y microsoft-edge-stable
+rm -f /etc/yum.repos.d/microsoft-edge.repo
+
 ## Custom ujust commands
 cp /ctx/stygian-blue.just /usr/share/ublue-os/just/60-custom.just
 
