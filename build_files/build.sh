@@ -11,8 +11,11 @@ set -ouex pipefail
 # dnf5 install -y tmux
 
 ## Install Microsoft Edge
+rpm --import https://packages.microsoft.com/keys/microsoft.asc
 curl -fsSL -o /etc/yum.repos.d/microsoft-edge.repo \
     https://packages.microsoft.com/yumrepos/edge/config.repo
+sed -i 's/gpgcheck=0/gpgcheck=1/' /etc/yum.repos.d/microsoft-edge.repo
+sed -i 's/repo_gpgcheck=0/repo_gpgcheck=1/' /etc/yum.repos.d/microsoft-edge.repo
 dnf5 install -y microsoft-edge-stable
 rm -f /etc/yum.repos.d/microsoft-edge.repo
 
