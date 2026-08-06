@@ -30,6 +30,9 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://downloads.1password.com/linux/keys/1password.asc
 EOF
+# /usr/local points here on bootc images. 1Password's RPM post-install script
+# now creates a CLI symlink in /usr/local/bin and expects the target to exist.
+mkdir -p /var/usrlocal/bin
 dnf5 install -y 1password
 rm -f /etc/yum.repos.d/1password.repo
 
