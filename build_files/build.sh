@@ -36,6 +36,19 @@ mkdir -p /var/usrlocal/bin
 dnf5 install -y 1password
 rm -f /etc/yum.repos.d/1password.repo
 
+## Install Unity Hub
+cat > /etc/yum.repos.d/unityhub.repo << 'EOF'
+[unityhub]
+name=Unity Hub
+baseurl=https://hub.unity3d.com/linux/repos/rpm/stable
+enabled=1
+gpgcheck=1
+gpgkey=https://hub.unity3d.com/linux/repos/rpm/stable/repodata/repomd.xml.key
+repo_gpgcheck=1
+EOF
+dnf5 install -y unityhub
+rm -f /etc/yum.repos.d/unityhub.repo
+
 ## Custom ujust commands
 cp /ctx/stygian-blue.just /usr/share/ublue-os/just/60-custom.just
 
